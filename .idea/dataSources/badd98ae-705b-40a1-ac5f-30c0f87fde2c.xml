@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="plats@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="plats">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="bddav1"/>
+    <schema id="4" parent="1" name="cluster"/>
+    <schema id="5" parent="1" name="gestion"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="oracso"/>
+    <schema id="9" parent="1" name="performance_schema"/>
+    <schema id="10" parent="1" name="phpmyadmin"/>
+    <schema id="11" parent="1" name="test"/>
+    <table id="12" parent="2" name="admin"/>
+    <table id="13" parent="2" name="categorie"/>
+    <table id="14" parent="2" name="ingredient"/>
+    <table id="15" parent="2" name="matiere_premiere"/>
+    <table id="16" parent="2" name="plat"/>
+    <table id="17" parent="2" name="specialite"/>
+    <table id="18" parent="2" name="unite"/>
+    <column id="19" parent="12" name="idAdmin">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="20" parent="12" name="identifiant">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="12" name="pass">
+      <Position>3</Position>
+      <DataType>char(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="22" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idAdmin</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="23" parent="13" name="idCategorie">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="13" name="nomCategorie">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="13" name="descriptionCategorie">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="26" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idCategorie</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="27" parent="14" name="idIngredient">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="14" name="idMatierePremiere">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="14" name="qte">
+      <Position>3</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="14" name="idPlat">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="31" parent="14" name="idMatierePremiere">
+      <ColNames>idMatierePremiere</ColNames>
+    </index>
+    <index id="32" parent="14" name="idPlat">
+      <ColNames>idPlat</ColNames>
+    </index>
+    <key id="33" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idIngredient</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="34" parent="14" name="ingredient_ibfk_1">
+      <ColNames>idMatierePremiere</ColNames>
+      <RefSchemaName>plats</RefSchemaName>
+      <RefTableName>matiere_premiere</RefTableName>
+      <RefColNames>idMatierePremiere</RefColNames>
+    </foreign-key>
+    <foreign-key id="35" parent="14" name="ingredient_ibfk_2">
+      <ColNames>idPlat</ColNames>
+      <RefSchemaName>plats</RefSchemaName>
+      <RefTableName>plat</RefTableName>
+      <RefColNames>idPlat</RefColNames>
+    </foreign-key>
+    <column id="36" parent="15" name="idMatierePremiere">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="37" parent="15" name="nomMatierePremiere">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="15" name="idUnite">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="39" parent="15" name="idUnite">
+      <ColNames>idUnite</ColNames>
+    </index>
+    <key id="40" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idMatierePremiere</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="41" parent="15" name="matiere_premiere_ibfk_1">
+      <ColNames>idUnite</ColNames>
+      <RefSchemaName>plats</RefSchemaName>
+      <RefTableName>unite</RefTableName>
+      <RefColNames>idUnite</RefColNames>
+    </foreign-key>
+    <column id="42" parent="16" name="idPlat">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="16" name="nomPlat">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="16" name="descriptionPlat">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="16" name="image">
+      <Position>4</Position>
+      <DataType>varchar(23)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="16" name="idCategorie">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="16" name="idSpecialite">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="16" name="indexPlat">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="49" parent="16" name="idCategorie">
+      <ColNames>idCategorie</ColNames>
+    </index>
+    <index id="50" parent="16" name="idSpecialite">
+      <ColNames>idSpecialite</ColNames>
+    </index>
+    <key id="51" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idPlat</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="52" parent="16" name="plat_ibfk_1">
+      <ColNames>idCategorie</ColNames>
+      <RefSchemaName>plats</RefSchemaName>
+      <RefTableName>categorie</RefTableName>
+      <RefColNames>idCategorie</RefColNames>
+    </foreign-key>
+    <foreign-key id="53" parent="16" name="plat_ibfk_2">
+      <ColNames>idSpecialite</ColNames>
+      <RefSchemaName>plats</RefSchemaName>
+      <RefTableName>specialite</RefTableName>
+      <RefColNames>idSpecialite</RefColNames>
+    </foreign-key>
+    <column id="54" parent="17" name="idSpecialite">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="55" parent="17" name="nomSpecialite">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="17" name="descriptionSpecialite">
+      <Position>3</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="57" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idSpecialite</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="58" parent="18" name="idUnite">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="18" name="nomUnite">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="60" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idUnite</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
